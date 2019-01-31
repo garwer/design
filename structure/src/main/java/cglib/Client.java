@@ -12,19 +12,21 @@ import net.sf.cglib.proxy.NoOp;
 public class Client {
     public static void main(String[] args) {
         //将代理类存到本地磁盘
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "D:\\code");
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "C:\\Users\\LJW\\IdeaProjects\\design\\structure\\src\\main\\java\\cglib\\classes");
         //实例化增强器
         Enhancer enhancer = new Enhancer();
-        //设置目标类
+        //设置需要代理的目标类
         enhancer.setSuperclass(Dao.class);
         //设置拦截对象 回调的实现类
-        //enhancer.setCallback(new DaoProxy());
+       // enhancer.setCallback(new DaoProxy());
         enhancer.setCallbacks(new Callback[]{new DaoProxy(), new DaoAnotherProxy(),NoOp.INSTANCE});
         enhancer.setCallbackFilter(new DaoFilter());
         //使用create 返回Object 生成代理类并返回实例
         Dao dao = (Dao) enhancer.create();
         //select优先级高 使用DaoProxy
         dao.select();
-        dao.delete(); //无法代理被final修饰的方法
+        //无法代理被final修饰的方法
+        dao.delete();
+        dao.insert();
     }
 }

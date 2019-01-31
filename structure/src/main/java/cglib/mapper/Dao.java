@@ -9,7 +9,7 @@ public class Dao {
         System.out.println("insert into ...");
     }
 
-    public void delete() {
+    public final void delete() {
         System.out.println("delete from ...");
     }
 }

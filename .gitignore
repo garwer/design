@@ -10,7 +10,5 @@
 /build
 /logs
 
-.gradle/
-.settings/
 .classpath
 .project

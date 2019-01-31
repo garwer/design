@@ -34,7 +34,7 @@ public class Test {
         // 使classWriter类已经完成
         // 将classWriter转换成字节数组写到文件里面去
         byte[] data = cs.toByteArray();
-        File file = new File("D://Duck.class");
+        File file = new File("C:\\Users\\LJW\\IdeaProjects\\design\\structure\\src\\main\\java\\cglib\\asm\\Duck.class");
         FileOutputStream fout = new FileOutputStream(file);
         fout.write(data);
         fout.close();
